@@ -1,0 +1,30 @@
+﻿@model DentalPatientsManager.Web.ViewModels.Patient.PatientsListViewModel
+@{
+    ViewBag.Title = "Всички пациенти";
+}
+
+<h2>Всички пациенти</h2>
+
+<div>
+    <table class="table-striped table">
+        <tr>
+            <th>Име</th>
+            <th>Телефон</th>
+            <th>Записан на</th>
+        </tr>
+            @foreach (var patient in Model.Patients)
+            {
+                <tr>
+                    <td>
+                        @patient.FirstName @patient.LastName
+                    </td>
+                    <td>
+                        @patient.Tel
+                    </td>
+                    <td>
+                        @patient.CreatedOn
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
