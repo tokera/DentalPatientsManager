@@ -1,0 +1,69 @@
+﻿@model DentalPatientsManager.Web.ViewModels.Patient.PatientDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Информация за пациент</h2>
+
+<div class="jumbotron">
+    <div title="Име" class="panel panel-info">@Model.FirstName</div>
+    <div title="Фамилия" class="panel panel-info">@Model.LastName</div>
+    <div title="Години" class="panel panel-info">@Model.Age</div>
+</div>
+
+
+<div id="toothStatus" class="jumbotron">
+    <h4>Зъбен статус</h4>
+    <div>
+        <div class="media">
+            <img class="media-object" src="~/Resources/Img/ToothStatusUp.jpg">
+        </div>
+        <div class="visible-lg-inline-block">
+            <a class="firstTooth" href="/ToothStatus/Add?number=18">18</a>
+            <a href="/ToothStatus/Add?number=17">17</a>
+            <a href="/ToothStatus/Add?number=16">16</a>
+            <a href="/ToothStatus/Add?number=15">15</a>
+            <a href="/ToothStatus/Add?number=14">14</a>
+            <a href="/ToothStatus/Add?number=13">13</a>
+            <a href="/ToothStatus/Add?number=12">12</a>
+            <a href="/ToothStatus/Add?number=11">11</a>
+        </div>
+        <div class="visible-lg-inline-block">
+            <a href="/ToothStatus/Add">21</a>
+            <a href="/ToothStatus/Add">22</a>
+            <a href="/ToothStatus/Add">23</a>
+            <a href="/ToothStatus/Add">24</a>
+            <a href="/ToothStatus/Add">25</a>
+            <a href="/ToothStatus/Add">26</a>
+            <a href="/ToothStatus/Add">27</a>
+            <a href="/ToothStatus/Add">28</a>
+        </div>
+    </div>
+    <div>
+        <div class="visible-lg-inline-block">
+            <a class="firstTooth" href="/ToothStatus/Add">38</a>
+            <a href="/ToothStatus/Add">37</a>
+            <a href="/ToothStatus/Add">36</a>
+            <a href="/ToothStatus/Add">35</a>
+            <a href="/ToothStatus/Add">34</a>
+            <a href="/ToothStatus/Add">33</a>
+            <a href="/ToothStatus/Add">32</a>
+            <a href="/ToothStatus/Add">31</a>
+        </div>
+        <div class="visible-lg-inline-block">
+            <a href="/ToothStatus/Add">41</a>
+            <a href="/ToothStatus/Add">42</a>
+            <a href="/ToothStatus/Add">43</a>
+            <a href="/ToothStatus/Add">44</a>
+            <a href="/ToothStatus/Add">45</a>
+            <a href="/ToothStatus/Add">46</a>
+            <a href="/ToothStatus/Add">47</a>
+            <a href="/ToothStatus/Add">48</a>
+        </div>
+        <div class="media">
+            <img class="media-object" src="~/Resources/Img/ToothStatusDown.jpg">
+        </div>
+    </div>
+
+</div>
+

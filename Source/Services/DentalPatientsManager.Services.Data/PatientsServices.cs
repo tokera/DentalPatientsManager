@@ -20,9 +20,29 @@
             this.patients.Save();
         }
 
-        public IQueryable<Patient> GetAll()
+        public IQueryable<Patient> GetAll(string sortBy, string search)
         {
-            return this.patients.All().OrderByDescending(p => p.CreatedOn);
+            switch (sortBy)
+            {
+                case "date": return this.patients.All()
+                        .Where(p => p.FirstName.Contains(search) || p.LastName.Contains(search))
+                        .OrderByDescending(p => p.CreatedOn);
+                    break;
+
+                case "name":
+                    return this.patients.All()
+                        .Where(p => p.FirstName.Contains(search) || p.LastName.Contains(search))
+                        .OrderBy(p => p.FirstName).ThenBy(p => p.LastName);
+                    break;
+
+                default: return this.patients.All();
+                    break;
+            }
+        }
+
+        public Patient GetById(int id)
+        {
+            return this.patients.GetById(id);
         }
     }
 }

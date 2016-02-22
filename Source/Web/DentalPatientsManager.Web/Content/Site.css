@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#toothStatus a {
+    padding-right: 6px;
+}
+
+#toothStatus img {
+    border:1px solid black
+}
+
+.firstTooth {
+    padding-left: 27px;
+}

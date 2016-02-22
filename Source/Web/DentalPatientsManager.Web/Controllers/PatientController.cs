@@ -1,13 +1,13 @@
 ﻿namespace DentalPatientsManager.Web.Controllers
 {
-    using System.Web.Mvc;
-    using Data.Common;
-    using Data.Models;
-    using Microsoft.AspNet.Identity;
-    using ViewModels.Patient;
-    using Services.Data;
-    using Infrastructure.Mapping;
     using System.Linq;
+    using System.Web.Mvc;
+    using Data.Models;
+    using Infrastructure.Mapping;
+    using Microsoft.AspNet.Identity;
+    using Services.Data;
+    using ViewModels.Patient;
+
     [Authorize]
     public class PatientController : Controller
     {
@@ -50,11 +50,10 @@
 
         }
 
-        public ActionResult ListPatients()
+        [HttpGet]
+        public ActionResult ListPatients(string sortBy = "date", string search = "")
         {
-            ;
-
-            var patientsToList = this.patients.GetAll()
+            var patientsToList = this.patients.GetAll(sortBy, search)
                 .To<PatientViewModel>()
                 .ToList();
 
@@ -64,6 +63,20 @@
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var patient = this.patients.GetById(id);
+            var model = new PatientDetailsViewModel
+            {
+                FirstName = patient.FirstName,
+                LastName = patient.LastName,
+                Age = patient.Age
+            };
+
+            return this.View(model);
         }
     }
 }
