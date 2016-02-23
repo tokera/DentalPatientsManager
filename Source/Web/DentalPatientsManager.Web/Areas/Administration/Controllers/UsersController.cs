@@ -81,15 +81,6 @@
                     FirstName = applicationUser.FirstName,
                     LastName = applicationUser.LastName,
                     Email = applicationUser.Email,
-                    EmailConfirmed = applicationUser.EmailConfirmed,
-                    PasswordHash = applicationUser.PasswordHash,
-                    SecurityStamp = applicationUser.SecurityStamp,
-                    PhoneNumber = applicationUser.PhoneNumber,
-                    PhoneNumberConfirmed = applicationUser.PhoneNumberConfirmed,
-                    TwoFactorEnabled = applicationUser.TwoFactorEnabled,
-                    LockoutEndDateUtc = applicationUser.LockoutEndDateUtc,
-                    LockoutEnabled = applicationUser.LockoutEnabled,
-                    AccessFailedCount = applicationUser.AccessFailedCount,
                     UserName = applicationUser.UserName
                 };
 

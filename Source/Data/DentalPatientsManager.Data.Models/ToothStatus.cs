@@ -7,7 +7,7 @@
     {
         public int ToothNumber { get; set; }
 
-        [MaxLength(1)]
+        [MaxLength(3)]
         public string Status { get; set; }
 
         [MaxLength(50)]

@@ -1,5 +1,6 @@
 ﻿namespace DentalPatientsManager.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using Data.Models;
@@ -11,6 +12,8 @@
     [Authorize]
     public class PatientController : Controller
     {
+        const int ItemsPerPage = 5;
+
         private readonly IPatientsServices patients;
 
         private readonly IToothStatusServices toothStatus;
@@ -55,14 +58,20 @@
         }
 
         [HttpGet]
-        public ActionResult ListPatients(string sortBy = "date", string search = "")
+        public ActionResult ListPatients(string sortBy = "date", string search = "", int id = 1)
         {
+            var page = id;
+            var allItemsCount = this.patients.GetAll(sortBy, search, this.User.Identity.GetUserId()).Count();
+            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
+            var itemsToSkip = (page - 1) * ItemsPerPage;
             var patientsToList = this.patients.GetAll(sortBy, search, this.User.Identity.GetUserId())
-                .To<PatientViewModel>()
-                .ToList();
+                .Skip(itemsToSkip).Take(ItemsPerPage)
+                .To<PatientViewModel>().ToList();
 
             var viewModel = new PatientsListViewModel
             {
+                CurrentPage = page,
+                TotalPages = totalPages,
                 Patients = patientsToList
             };
 

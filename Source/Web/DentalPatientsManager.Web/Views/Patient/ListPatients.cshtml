@@ -1,6 +1,6 @@
 ﻿@model DentalPatientsManager.Web.ViewModels.Patient.PatientsListViewModel
 @{
-    ViewBag.Title = "Всички пациенти";
+    ViewBag.Title = "Моите пациенти";
 }
 
 <h2>Всички пациенти</h2>
@@ -36,14 +36,8 @@
                     <input type="submit" value="Търси" class="btn btn-default" />
                 </div>
             }
-            @*<form class="navbar-form navbar-left" role="search" >
-                <div class="">
-                    <input type="text" class="form-control" placeholder="Търсене ...">
-                </div>
-                <button type="submit" class="btn btn-default">Търси</button>
-            </form>*@
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 
 <div>
@@ -70,4 +64,38 @@
                 </tr>
             }
     </table>
+    
+</div>
+<div>
+    <nav>
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li>
+                    <a href="/Patient/ListPatients/@(Model.CurrentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var className = string.Empty;
+                if (Model.CurrentPage == i)
+                {
+                    className = "active";
+                }
+
+                <li class="@className"><a href="/Patient/ListPatients/@i">@i</a></li>
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li>
+                    <a href="/Patient/ListPatients/@(Model.CurrentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </nav>
 </div>
