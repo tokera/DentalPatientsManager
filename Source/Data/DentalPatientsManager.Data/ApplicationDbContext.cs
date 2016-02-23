@@ -25,20 +25,8 @@
 
         public override int SaveChanges()
         {
-            try
-            {
                 this.ApplyAuditInfoRules();
-
                 return base.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            return base.SaveChanges();
-
         }
 
         private void ApplyAuditInfoRules()

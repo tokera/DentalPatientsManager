@@ -78,6 +78,10 @@
     </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DentalPatientsManager.Common\DentalPatientsManager.Common.csproj">
+      <Project>{701f322f-aa01-4ddc-90b6-6935981c1e73}</Project>
+      <Name>DentalPatientsManager.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DentalPatientsManager.Data.Common\DentalPatientsManager.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>DentalPatientsManager.Data.Common</Name>
