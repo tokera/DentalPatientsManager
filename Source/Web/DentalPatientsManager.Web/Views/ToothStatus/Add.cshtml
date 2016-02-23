@@ -1,6 +1,62 @@
-﻿@{
+﻿@model DentalPatientsManager.Web.ViewModels.ToothStatus.ToothStatusInputViewModel
+@{
     ViewBag.Title = "Add";
 }
 
-<h2>Зъб номер @ViewBag.ToothNumber</h2>
+<h2>Зъб номер @TempData["ToothNumber"]</h2>
 
+<div class="container">
+    <div class="col-lg-5">
+        @using (Html.BeginForm("Add", "ToothStatus", new { toothNumber = TempData["ToothNumber"] }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Status, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Status, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Diagnose, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Diagnose, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.TreatmentPlan, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.TreatmentPlan, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Ок" />
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="col-lg-5">
+        <h3>Легенда за статус</h3>
+        <div><strong>D</strong> - девитализиран зъб</div>
+        <div><strong>K</strong> - корона</div>
+        <div><strong>M</strong> - мостоносител</div>
+        <div><strong>O</strong> - обтурация</div>
+        <div><strong>X</strong> - изкуствен зъб</div>
+        <div><strong>E</strong> - липсващ зъб</div>
+        <div><strong>F</strong> - фрактура</div>
+        <div><strong>R</strong> - корен</div>
+        <div><strong>O</strong> - обтурация</div>
+        <div><strong>C</strong> - кариес</div>
+        <div><strong>Pul</strong> - пулпит</div>
+        <div><strong>Per</strong> - периодонтит</div>
+        <div><strong>Par</strong> - пародонтит</div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

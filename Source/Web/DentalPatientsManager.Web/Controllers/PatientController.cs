@@ -13,9 +13,13 @@
     {
         private readonly IPatientsServices patients;
 
-        public PatientController(IPatientsServices patients)
+        private readonly IToothStatusServices toothStatus;
+
+
+        public PatientController(IPatientsServices patients, IToothStatusServices toothStatus)
         {
             this.patients = patients;
+            this.toothStatus = toothStatus;
         }
 
         [HttpGet]
@@ -46,14 +50,14 @@
 
             this.patients.Create(patient);
 
-            return this.Redirect("/");
+            return this.Redirect("/Patient/ListPatients");
 
         }
 
         [HttpGet]
         public ActionResult ListPatients(string sortBy = "date", string search = "")
         {
-            var patientsToList = this.patients.GetAll(sortBy, search)
+            var patientsToList = this.patients.GetAll(sortBy, search, this.User.Identity.GetUserId())
                 .To<PatientViewModel>()
                 .ToList();
 
@@ -69,12 +73,19 @@
         public ActionResult Details(int id)
         {
             var patient = this.patients.GetById(id);
+            var tootStatusForPatient = this.toothStatus.GetAllByPatientId(id).ToList();
             var model = new PatientDetailsViewModel
             {
                 FirstName = patient.FirstName,
                 LastName = patient.LastName,
-                Age = patient.Age
+                Age = patient.Age,
+                Address = patient.Address,
+                Tel = patient.Tel,
+                Profession = patient.Profession,
+                ToothStatus = tootStatusForPatient
             };
+
+            this.TempData["PatientId"] = id;
 
             return this.View(model);
         }

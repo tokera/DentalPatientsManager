@@ -7,7 +7,7 @@
     {
         void Create(Patient patient);
 
-        IQueryable<Patient> GetAll(string sortBy, string search);
+        IQueryable<Patient> GetAll(string sortBy, string search, string userId);
 
         Patient GetById(int id);
     }

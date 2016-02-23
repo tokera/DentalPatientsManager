@@ -53,6 +53,9 @@
             var servicesAssembly = Assembly.GetAssembly(typeof(IPatientsServices));
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
 
+            var servicesAssembly2 = Assembly.GetAssembly(typeof(IToothStatusServices));
+            builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
+
             builder.Register(x => new IdentifierProvider())
                 .As<IIdentifierProvider>()
                 .InstancePerRequest();

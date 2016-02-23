@@ -5,15 +5,19 @@
 
     public class ToothStatus : BaseModel<int>
     {
-        [Required]
         public int ToothNumber { get; set; }
 
+        [MaxLength(1)]
+        public string Status { get; set; }
+
+        [MaxLength(50)]
         public string Diagnose { get; set; }
 
+        [MaxLength(50)]
         public string TreatmentPlan { get; set; }
 
-        public int PacientId { get; set; }
+        public int PatientId { get; set; }
 
-        public virtual Patient Pacient { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }

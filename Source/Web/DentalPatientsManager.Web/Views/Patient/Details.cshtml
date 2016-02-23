@@ -5,10 +5,21 @@
 
 <h2>Информация за пациент</h2>
 
-<div class="jumbotron">
-    <div title="Име" class="panel panel-info">@Model.FirstName</div>
-    <div title="Фамилия" class="panel panel-info">@Model.LastName</div>
-    <div title="Години" class="panel panel-info">@Model.Age</div>
+<div>
+    <ul class="list-group">
+        <li class="list-group-item"><b>Име: </b>@Model.FirstName</li>
+        <li class="list-group-item"><b>Фамилия: </b>@Model.LastName</li>
+        <li class="list-group-item"><b>Години: </b>@Model.Age</li>
+        <li class="list-group-item"><b>Адрес: </b>@Model.Address</li>
+        <li class="list-group-item"><b>Телефонен номер: </b>@Model.Tel</li>
+        <li class="list-group-item"><b>Професия: </b>@Model.Profession</li>
+        <li class="list-group-item"><b>Зъби за лечение: </b>
+        @foreach (var toothStatus in Model.ToothStatus)
+        {
+            <a href="/ToothStatus/Details/@toothStatus.Id?toothNumber=@toothStatus.ToothNumber">@toothStatus.ToothNumber</a>
+        }
+        </li>
+    </ul>
 </div>
 
 
@@ -19,46 +30,46 @@
             <img class="media-object" src="~/Resources/Img/ToothStatusUp.jpg">
         </div>
         <div class="visible-lg-inline-block">
-            <a class="firstTooth" href="/ToothStatus/Add?number=18">18</a>
-            <a href="/ToothStatus/Add?number=17">17</a>
-            <a href="/ToothStatus/Add?number=16">16</a>
-            <a href="/ToothStatus/Add?number=15">15</a>
-            <a href="/ToothStatus/Add?number=14">14</a>
-            <a href="/ToothStatus/Add?number=13">13</a>
-            <a href="/ToothStatus/Add?number=12">12</a>
-            <a href="/ToothStatus/Add?number=11">11</a>
+            <a class="firstTooth" href="/ToothStatus/Add?number=18&id=@TempData["PatientId"]">18</a>
+            <a href="/ToothStatus/Add?number=17&id=@TempData["PatientId"]">17</a>
+            <a href="/ToothStatus/Add?number=16&id=@TempData["PatientId"]">16</a>
+            <a href="/ToothStatus/Add?number=15&id=@TempData["PatientId"]">15</a>
+            <a href="/ToothStatus/Add?number=14&id=@TempData["PatientId"]">14</a>
+            <a href="/ToothStatus/Add?number=13&id=@TempData["PatientId"]">13</a>
+            <a href="/ToothStatus/Add?number=12&id=@TempData["PatientId"]">12</a>
+            <a href="/ToothStatus/Add?number=11&id=@TempData["PatientId"]">11</a>
         </div>
         <div class="visible-lg-inline-block">
-            <a href="/ToothStatus/Add">21</a>
-            <a href="/ToothStatus/Add">22</a>
-            <a href="/ToothStatus/Add">23</a>
-            <a href="/ToothStatus/Add">24</a>
-            <a href="/ToothStatus/Add">25</a>
-            <a href="/ToothStatus/Add">26</a>
-            <a href="/ToothStatus/Add">27</a>
-            <a href="/ToothStatus/Add">28</a>
+            <a href="/ToothStatus/Add?number=21&id=@TempData["PatientId"]">21</a>
+            <a href="/ToothStatus/Add?number=22&id=@TempData["PatientId"]">22</a>
+            <a href="/ToothStatus/Add?number=23&id=@TempData["PatientId"]">23</a>
+            <a href="/ToothStatus/Add?number=24&id=@TempData["PatientId"]">24</a>
+            <a href="/ToothStatus/Add?number=25&id=@TempData["PatientId"]">25</a>
+            <a href="/ToothStatus/Add?number=26&id=@TempData["PatientId"]">26</a>
+            <a href="/ToothStatus/Add?number=27&id=@TempData["PatientId"]">27</a>
+            <a href="/ToothStatus/Add?number=28&id=@TempData["PatientId"]">28</a>
         </div>
     </div>
     <div>
         <div class="visible-lg-inline-block">
             <a class="firstTooth" href="/ToothStatus/Add">38</a>
-            <a href="/ToothStatus/Add">37</a>
-            <a href="/ToothStatus/Add">36</a>
-            <a href="/ToothStatus/Add">35</a>
-            <a href="/ToothStatus/Add">34</a>
-            <a href="/ToothStatus/Add">33</a>
-            <a href="/ToothStatus/Add">32</a>
-            <a href="/ToothStatus/Add">31</a>
+            <a href="/ToothStatus/Add?number=37&id=@TempData["PatientId"]">37</a>
+            <a href="/ToothStatus/Add?number=36&id=@TempData["PatientId"]">36</a>
+            <a href="/ToothStatus/Add?number=35&id=@TempData["PatientId"]">35</a>
+            <a href="/ToothStatus/Add?number=34&id=@TempData["PatientId"]">34</a>
+            <a href="/ToothStatus/Add?number=33&id=@TempData["PatientId"]">33</a>
+            <a href="/ToothStatus/Add?number=32&id=@TempData["PatientId"]">32</a>
+            <a href="/ToothStatus/Add?number=31&id=@TempData["PatientId"]">31</a>
         </div>
         <div class="visible-lg-inline-block">
-            <a href="/ToothStatus/Add">41</a>
-            <a href="/ToothStatus/Add">42</a>
-            <a href="/ToothStatus/Add">43</a>
-            <a href="/ToothStatus/Add">44</a>
-            <a href="/ToothStatus/Add">45</a>
-            <a href="/ToothStatus/Add">46</a>
-            <a href="/ToothStatus/Add">47</a>
-            <a href="/ToothStatus/Add">48</a>
+            <a href="/ToothStatus/Add?number=41&id=@TempData["PatientId"]">41</a>
+            <a href="/ToothStatus/Add?number=42&id=@TempData["PatientId"]">42</a>
+            <a href="/ToothStatus/Add?number=43&id=@TempData["PatientId"]">43</a>
+            <a href="/ToothStatus/Add?number=44&id=@TempData["PatientId"]">44</a>
+            <a href="/ToothStatus/Add?number=45&id=@TempData["PatientId"]">45</a>
+            <a href="/ToothStatus/Add?number=46&id=@TempData["PatientId"]">46</a>
+            <a href="/ToothStatus/Add?number=47&id=@TempData["PatientId"]">47</a>
+            <a href="/ToothStatus/Add?number=48&id=@TempData["PatientId"]">48</a>
         </div>
         <div class="media">
             <img class="media-object" src="~/Resources/Img/ToothStatusDown.jpg">

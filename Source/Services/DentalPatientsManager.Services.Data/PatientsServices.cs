@@ -20,17 +20,19 @@
             this.patients.Save();
         }
 
-        public IQueryable<Patient> GetAll(string sortBy, string search)
+        public IQueryable<Patient> GetAll(string sortBy, string search, string userId)
         {
             switch (sortBy)
             {
                 case "date": return this.patients.All()
+                        .Where(p => p.DoctorId == userId)
                         .Where(p => p.FirstName.Contains(search) || p.LastName.Contains(search))
                         .OrderByDescending(p => p.CreatedOn);
                     break;
 
                 case "name":
                     return this.patients.All()
+                        .Where(p => p.DoctorId == userId)
                         .Where(p => p.FirstName.Contains(search) || p.LastName.Contains(search))
                         .OrderBy(p => p.FirstName).ThenBy(p => p.LastName);
                     break;

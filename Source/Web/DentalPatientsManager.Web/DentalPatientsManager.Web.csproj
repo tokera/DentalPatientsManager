@@ -232,6 +232,8 @@
     <Compile Include="ViewModels\Patient\PatientInputViewModel.cs" />
     <Compile Include="ViewModels\Patient\PatientsListViewModel.cs" />
     <Compile Include="ViewModels\Patient\PatientViewModel.cs" />
+    <Compile Include="ViewModels\ToothStatus\ToothStatusInputViewModel.cs" />
+    <Compile Include="ViewModels\ToothStatus\ToothStatusViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -302,6 +304,7 @@
     <Content Include="Views\Patient\ListPatients.cshtml" />
     <Content Include="Views\Patient\Details.cshtml" />
     <Content Include="Views\ToothStatus\Add.cshtml" />
+    <Content Include="Views\ToothStatus\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

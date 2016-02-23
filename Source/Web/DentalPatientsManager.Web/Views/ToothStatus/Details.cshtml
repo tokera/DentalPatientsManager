@@ -1,0 +1,51 @@
+﻿@model DentalPatientsManager.Web.ViewModels.ToothStatus.ToothStatusViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Зъб номер @TempData["ToothNumber"]</h2>
+<hr />
+<div class="container">
+    <div class="col-md-8">
+        <div class="form-group row">
+            @Html.LabelFor(m => m.PatientName, new { @class = "col-md-3 control-label" })
+            <div>
+                <h4>@Model.PatientName</h4>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Status, new { @class = "col-md-3 control-label" })
+            <div>
+                <h4>@Model.Status</h4>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Diagnose, new { @class = "col-md-3 control-label" })
+            <div>
+                <h4>@Model.Diagnose</h4>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(m => m.CreatedOn, new { @class = "col-md-3 control-label" })
+            <div>
+                <h4>@Model.CreatedOn</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>Легенда за статус</h3>
+        <div><strong>D</strong> - девитализиран зъб</div>
+        <div><strong>K</strong> - корона</div>
+        <div><strong>M</strong> - мостоносител</div>
+        <div><strong>O</strong> - обтурация</div>
+        <div><strong>X</strong> - изкуствен зъб</div>
+        <div><strong>E</strong> - липсващ зъб</div>
+        <div><strong>F</strong> - фрактура</div>
+        <div><strong>R</strong> - корен</div>
+        <div><strong>O</strong> - обтурация</div>
+        <div><strong>C</strong> - кариес</div>
+        <div><strong>Pul</strong> - пулпит</div>
+        <div><strong>Per</strong> - периодонтит</div>
+        <div><strong>Par</strong> - пародонтит</div>
+    </div>
+</div>
